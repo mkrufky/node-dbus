@@ -1,7 +1,11 @@
-sudo: false
 addons:
   apt:
-    packages: ['libdbus-1-dev']
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+      - libdbus-dev
+      - libdbus-1-dev
 language: node_js
 node_js:
   - "0.4"
@@ -9,7 +13,10 @@ node_js:
   - "0.8"
   - "0.10"
   - "0.12"
+  - "4"
   - "4.0"
   - "4.1"
   - "4.2"
   - "5.4"
+  - "stable"
+  - "iojs"
