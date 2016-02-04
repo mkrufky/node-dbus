@@ -1,7 +1,7 @@
 sudo: false
 addons:
   apt:
-    packages: ['libdbus-dev']
+    packages: ['libdbus-1-dev']
 language: node_js
 node_js:
   - "0.4"
