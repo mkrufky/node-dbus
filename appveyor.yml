@@ -1,11 +1,32 @@
-# Test against this version of Node.js
+os: Visual Studio 2015
 environment:
+  global:
+    CYG_ROOT: C:\cygwin
+    CYG_MIRROR: http://cygwin.mirror.constant.com
+    CYG_CACHE: C:\cygwin\var\cache\setup
+    CYG_BASH: C:\cygwin\bin\bash
   matrix:
   - nodejs_version: "0.10"
   - nodejs_version: "0.12"
   - nodejs_version: "3"
   - nodejs_version: "4"
   - nodejs_version: "5"
+
+#
+# Cache Cygwin files to speed up build
+#
+cache:
+  - '%CYG_CACHE%'
+#
+# Do a shallow clone of the repo to speed up build
+#
+clone_depth: 1
+
+#
+# Attempt to ensure we don't try to convert line endings to Win32 CRLF as this will cause build to fail
+#
+init:
+  - git config --global core.autocrlf input
 
 # Install scripts. (runs after repo cloning)
 install:
