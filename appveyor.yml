@@ -30,12 +30,12 @@ init:
 
 # Install scripts. (runs after repo cloning)
 install:
-  - ps: 'Start-FileDownload "http://cygwin.com/setup-x86.exe" -FileName "setup-x86.exe"'
-  - 'setup-x86.exe --quiet-mode --no-shortcuts --only-site --root "%CYG_ROOT%" --site "%CYG_MIRROR%" --local-package-dir "%CYG_CACHE%" --packages autoconf,automake,bison,gcc-core,gcc-g++,mingw-runtime,mingw-binutils,mingw-gcc-core,mingw-gcc-g++,mingw-pthreads,mingw-w32api,libtool,make,python,gettext-devel,gettext,intltool,libiconv,pkg-config,git,curl,libxslt,mingw-dbus,mingw-w64-dbus,expat'
-  - '%CYG_BASH% -lc "cygcheck -dc cygwin"'
-  - set PATH=C:\msys64\usr\bin;%PATH%
-  - bash --login -c "pacman -Q"
-  - bash --login -c "pacman -S --noconfirm python mingw-w64-x86_64-gnutls mingw-w64-x86_64-libiconv mingw-w64-i686-gnutls mingw-w64-i686-libiconv expat"
+#  - ps: 'Start-FileDownload "http://cygwin.com/setup-x86.exe" -FileName "setup-x86.exe"'
+#  - 'setup-x86.exe --quiet-mode --no-shortcuts --only-site --root "%CYG_ROOT%" --site "%CYG_MIRROR%" --local-package-dir "%CYG_CACHE%" --packages autoconf,automake,bison,gcc-core,gcc-g++,mingw-runtime,mingw-binutils,mingw-gcc-core,mingw-gcc-g++,mingw-pthreads,mingw-w32api,libtool,make,python,gettext-devel,gettext,intltool,libiconv,pkg-config,git,curl,libxslt,mingw-dbus,mingw-w64-dbus,expat'
+#  - '%CYG_BASH% -lc "cygcheck -dc cygwin"'
+#  - set PATH=C:\msys64\usr\bin;%PATH%
+#  - bash --login -c "pacman -Q"
+#  - bash --login -c "pacman -S --noconfirm python mingw-w64-x86_64-gnutls mingw-w64-x86_64-libiconv mingw-w64-i686-gnutls mingw-w64-i686-libiconv expat"
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
