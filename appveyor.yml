@@ -40,7 +40,7 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # install modules
   - "nuget install expat -Version 2.1.0.11"
-  - "curl -LO http://dbus.freedesktop.org/releases/dbus/dbus-1.9.16.tar.gz"
+  - "curl -LO https://dbus.freedesktop.org/releases/dbus/dbus-1.9.16.tar.gz"
   - "7z e dbus-1.9.16.tar.gz > nul"
   - "7z x dbus-1.9.16.tar > nul"
   - "cd dbus-1.9.16"
