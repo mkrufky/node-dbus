@@ -48,7 +48,8 @@ install:
   - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x86'
   - "cmake -DEXPAT_INCLUDE_DIR=\"expat.2.1.0.11\\build\\native\\include\" -DEXPAT_LIBRARY=\"expat.2.1.0.11\\build\\native\\lib\\v110\\Win32\\Release\\static\\utf8\\libexpat.lib\" ..\\cmake"
   - cd C:/projects/node-dbus/dbus-1.9.16/build
-  - "nmake"
+#  - "nmake"
+  - mingw32-make -j
   - cd ..
   - cd ..
   - npm install
