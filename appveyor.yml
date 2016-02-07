@@ -30,7 +30,9 @@ init:
 
 # Install scripts. (runs after repo cloning)
 install:
-   - set PATH=C:\msys64\usr\bin;%PATH%
+  - set QTDIR=C:\Qt\5.4\mingw491_32
+  - set PATH=%QTDIR%\bin;C:\MinGW\bin;%PATH%
+#- set PATH=C:\msys64\usr\bin;%PATH%
 #  - ps: 'Start-FileDownload "http://cygwin.com/setup-x86.exe" -FileName "setup-x86.exe"'
 #  - 'setup-x86.exe --quiet-mode --no-shortcuts --only-site --root "%CYG_ROOT%" --site "%CYG_MIRROR%" --local-package-dir "%CYG_CACHE%" --packages autoconf,automake,bison,gcc-core,gcc-g++,mingw-runtime,mingw-binutils,mingw-gcc-core,mingw-gcc-g++,mingw-pthreads,mingw-w32api,libtool,make,python,gettext-devel,gettext,intltool,libiconv,pkg-config,git,curl,libxslt,mingw-dbus,mingw-w64-dbus,expat'
 #  - '%CYG_BASH% -lc "cygcheck -dc cygwin"'
