@@ -35,7 +35,7 @@ install:
   - '%CYG_BASH% -lc "cygcheck -dc cygwin"'
   - set PATH=C:\msys64\usr\bin;%PATH%
   - bash --login -c "pacman -Q"
-  - bash --login -c "pacman -S --noconfirm python mingw-w64-x86_64-gnutls mingw-w64-x86_64-libiconv mingw-w64-i686-gnutls mingw-w64-i686-libiconv mingw-w64-dbus expat"
+  - bash --login -c "pacman -S --noconfirm python mingw-w64-x86_64-gnutls mingw-w64-x86_64-libiconv mingw-w64-i686-gnutls mingw-w64-i686-libiconv expat"
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
