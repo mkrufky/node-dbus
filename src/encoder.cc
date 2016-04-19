@@ -40,17 +40,27 @@ namespace Encoder {
 		return value->IsInt32();
 	}
 
-	bool IsInt64(Local<Value>& value, const char* sig = NULL)
+	bool IsUint64(Local<Value>& value, const char* sig = NULL)
 	{
-		if (value->IsNumber()) {
-			return (value->ToNumber()->Equals(value->ToInteger()));
+		if (value->IsNumber() && (value->ToNumber()->Equals(value->ToInteger()))) {
+			int64_t number = value->IntegerValue();
+			/* value->IntegerValue() returns int64_t, max=9223372036854775807 */
+			if (number >= 0 && number <= 9223372036854775807) {
+				return true;
+			}
 		}
 		return false;
 	}
 
-	bool IsUint64(Local<Value>& value, const char* sig = NULL)
+	bool IsInt64(Local<Value>& value, const char* sig = NULL)
 	{
-		return (IsInt64(value, sig) && (value->IntegerValue() >= 0));
+		if (value->IsNumber() && (value->ToNumber()->Equals(value->ToInteger()))) {
+			int64_t number = value->IntegerValue();
+			if (number >= -9223372036854775807 && number <= 9223372036854775807) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	bool IsNumber(Local<Value>& value, const char* sig = NULL)
