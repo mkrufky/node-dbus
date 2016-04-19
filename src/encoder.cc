@@ -50,7 +50,7 @@ namespace Encoder {
 
 	bool IsUint64(Local<Value>& value, const char* sig = NULL)
 	{
-		return (IsInt64(value) && (value->IntegerValue() >= 0));
+		return (IsInt64(value, sig) && (value->IntegerValue() >= 0));
 	}
 
 	bool IsNumber(Local<Value>& value, const char* sig = NULL)
