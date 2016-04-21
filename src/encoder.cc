@@ -42,12 +42,14 @@ namespace Encoder {
 
 	bool IsUint64(Local<Value>& value, const char* sig = NULL)
 	{
-		double number = value->NumberValue();
-		if (value->IsNumber() && (0 == number - trunc(number))) {
-			int64_t integer = value->IntegerValue();
-			/* value->IntegerValue() returns int64_t, max=9223372036854775807 */
-			if (integer >= 0 && integer <= 9223372036854775807) {
-				return true;
+		if (value->IsNumber()) {
+			double number = value->NumberValue();
+			if (0 == number - trunc(number)) {
+				int64_t integer = value->IntegerValue();
+				/* value->IntegerValue() returns int64_t, max=9223372036854775807 */
+				if (integer >= 0 && integer <= 9223372036854775807) {
+					return true;
+				}
 			}
 		}
 		return false;
@@ -55,11 +57,13 @@ namespace Encoder {
 
 	bool IsInt64(Local<Value>& value, const char* sig = NULL)
 	{
-		double number = value->NumberValue();
-		if (value->IsNumber() && (0 == number - trunc(number))) {
-			int64_t integer = value->IntegerValue();
-			if (integer >= -9223372036854775807 && integer <= 9223372036854775807) {
-				return true;
+		if (value->IsNumber()) {
+			double number = value->NumberValue();
+			if (0 == number - trunc(number)) {
+				int64_t integer = value->IntegerValue();
+				if (integer >= -9223372036854775807 && integer <= 9223372036854775807) {
+					return true;
+				}
 			}
 		}
 		return false;
